@@ -9,6 +9,7 @@ from bank import BankManager
 from utility import get_float
 
 def create_account(manager):
+    """Prompt user for account details and create a new account."""
     owner_name = input("Enter the owner's name: ")
     account_number = input("Enter the account number: ")
     try:
@@ -17,6 +18,7 @@ def create_account(manager):
         print(e)
 
 def deposit(manager):
+    """Prompt user for deposit details and perform the deposit operation."""
     account_number = input("Enter the account number: ")
     amount = get_float("Enter the amount to deposit: ")
     try:
@@ -25,6 +27,7 @@ def deposit(manager):
         print(e)
 
 def withdraw(manager):
+    """Prompt user for withdrawal details and perform the withdrawal operation."""
     account_number = input("Enter the account number: ")
     amount = get_float("Enter the amount to withdraw: ")
     try:
@@ -33,6 +36,7 @@ def withdraw(manager):
         print(e)
 
 def transfer(manager):
+    """Prompt user for transfer details and perform the transfer operation."""
     source_account_number = input("Enter the source account number: ")
     destination_account_number = input("Enter the destination account number: ")
     amount = get_float("Enter the amount to transfer: ")
@@ -42,6 +46,7 @@ def transfer(manager):
         print(e)
 
 def show_balance(manager):
+    """Prompt user for account number and display the current balance."""
     account_number = input("Enter the account number: ")
     account = manager.account_exists(account_number)
     if account:
@@ -50,6 +55,7 @@ def show_balance(manager):
         print("Account does not exist.")
 
 def main():
+    """Main function to provide a user interface for the banking system."""
     manager = BankManager()
     actions = {
         "1": create_account,
